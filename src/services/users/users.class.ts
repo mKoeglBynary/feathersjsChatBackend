@@ -16,8 +16,10 @@ export class Users extends Service<UserData> {
 
   create (data: UserData, params?: Params) {
     const { email, password, githubId} = data;
-    const hash = crypto.createHash('md5').update(email.toLocaleLowerCase()).digest('hex');
-    const avatar = `${gravatarUrl}/${hash}?${query}`;
+    //const hash = crypto.createHash('md5').update(email.toLocaleLowerCase()).digest('hex');
+    const randInt = Math.round(Math.random() * 200 + 200);
+    const avatar = `https://picsum.photos/${randInt}`;
+    // const avatar = ${gravatarUrl}/${hash}?${query};
 
     const userData = {
       email,
